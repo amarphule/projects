@@ -10,6 +10,15 @@ function App() {
     const remainingTOdos = todos.filter((item) => item.id !== id);
     setTodos(remainingTOdos);
   };
+  const handleIsChecked = (id) => {
+    const updatedTodo = todos.map((item) => {
+      if (item.id === id) {
+        return { ...item, complete: !item.complete };
+      }
+      return item;
+    });
+    setTodos(updatedTodo);
+  };
   return (
     <>
       <h1>Todo Application</h1>
@@ -17,7 +26,18 @@ function App() {
       <ol>
         {todos.map((item, i) => (
           <li key={i}>
-            {item.task}
+            <input
+              type="checkbox"
+              checked={item.complete}
+              onChange={() => handleIsChecked(item.id)}
+            />
+            <span
+              style={{
+                textDecoration: item.complete ? "line-through" : "none",
+              }}
+            >
+              {item.task}
+            </span>
             <span
               style={{
                 fontSize: "20px",
