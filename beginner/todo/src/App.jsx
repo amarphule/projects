@@ -20,38 +20,42 @@ function App() {
     setTodos(updatedTodo);
   };
   return (
-    <>
+    <div
+      className="App"
+      // style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <h1>Todo Application</h1>
       <AddTodo todo={todo} setTodo={setTodo} setTodos={setTodos} />
-      <ol>
-        {todos.map((item, i) => (
-          <li key={i}>
-            <input
-              type="checkbox"
-              checked={item.complete}
-              onChange={() => handleIsChecked(item.id)}
-            />
-            <span
-              style={{
-                textDecoration: item.complete ? "line-through" : "none",
-              }}
-            >
-              {item.task}
-            </span>
-            <span
-              style={{
-                fontSize: "20px",
-                cursor: "pointer",
-                marginLeft: "10px",
-              }}
-              onClick={() => handleDelete(item.id)}
-            >
-              x
-            </span>
-          </li>
-        ))}
-      </ol>
-    </>
+
+      {todos.map((item) => (
+        <div key={item.id} className="todo-item">
+          <input
+            type="checkbox"
+            checked={item.complete}
+            onChange={() => handleIsChecked(item.id)}
+          />
+          <div
+            className="todo-task"
+            // style={{
+            //   textDecoration: item.complete ? "line-through" : "none",
+            // }}
+          >
+            {item.task}
+          </div>
+          <div
+            className="close-button"
+            // style={{
+            //   fontSize: "20px",
+            //   cursor: "pointer",
+            //   marginLeft: "10px",
+            // }}
+            onClick={() => handleDelete(item.id)}
+          >
+            &times;
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 

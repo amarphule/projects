@@ -8,13 +8,16 @@ const AddTodo = ({ todo, setTodo, setTodos }) => {
     setTodo("");
   };
   return (
-    <div>
+    <div className="input-container">
       <input
+        className="input-field"
         placeholder="Enter Task..."
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
       />
-      <button onClick={handleAddTodo}>ADD TODO</button>
+      <button className="add-button" onClick={handleAddTodo}>
+        ADD TODO
+      </button>
     </div>
   );
 };
