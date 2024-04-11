@@ -8,3 +8,9 @@
   height: 34px;
   text-align: center;
 }
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
