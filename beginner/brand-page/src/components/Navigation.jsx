@@ -4,7 +4,7 @@ const Navigation = () => {
       <div className="nav-logo">
         <img src="../../images/brand_logo.png" alt="Brand logo" />
       </div>
-      <ul className="nav-menu">
+      <ul>
         <li>Menu</li>
         <li>Location</li>
         <li>About</li>
