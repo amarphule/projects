@@ -1,5 +1,6 @@
 import styled from "styled-components";
-const StartGame = () => {
+// eslint-disable-next-line react/prop-types
+const StartGame = ({ start }) => {
   return (
     <StartGameContainer>
       <div>
@@ -7,7 +8,7 @@ const StartGame = () => {
       </div>
       <div>
         <h1>Dice Game</h1>
-        <Button>Start Game</Button>
+        <Button onClick={start}>Start Game</Button>
       </div>
     </StartGameContainer>
   );
