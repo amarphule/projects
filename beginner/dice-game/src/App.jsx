@@ -1,16 +1,14 @@
 import { useState } from "react";
 import "./App.css";
 import StartGame from "./components/StartGame";
+import PlayGame from "./components/PlayGame";
 
 function App() {
   const [isStared, setIsStarted] = useState(false);
   return (
     <>
-      {isStared ? (
-        <div>game started</div>
-      ) : (
-        <StartGame start={() => setIsStarted(true)} />
-      )}
+      {/* {isStared ? <PlayGame /> : <StartGame start={() => setIsStarted(true)} />} */}
+      <PlayGame />
     </>
   );
 }
