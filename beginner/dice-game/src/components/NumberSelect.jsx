@@ -1,16 +1,26 @@
+/* eslint-disable react/prop-types */
 import styled from "styled-components";
-// eslint-disable-next-line react/prop-types
-const NumberSelect = ({ selectedNumber, setSelectedNumber }) => {
+const NumberSelect = ({
+  selectedNumber,
+  setSelectedNumber,
+  error,
+  setError,
+}) => {
   const numberArray = [1, 2, 3, 4, 5, 6];
+  const numberSelectorHandler = (value) => {
+    setSelectedNumber(value);
+    setError("");
+  };
   return (
     <NumberContainer>
+      <p className="error">{error}</p>
       <div className="flex">
         {numberArray.map((value, i) => {
           return (
             <Box
               key={i}
-              isselected={value === selectedNumber}
-              onClick={() => setSelectedNumber(value)}
+              isSelected={value === selectedNumber}
+              onClick={() => numberSelectorHandler(value)}
             >
               {value}
             </Box>
@@ -36,6 +46,9 @@ const NumberContainer = styled.div`
     font-size: 24px;
     font-weight: 700px;
   }
+  .error {
+    color: red;
+  }
 `;
 
 const Box = styled.div`
@@ -47,6 +60,6 @@ const Box = styled.div`
   display: grid;
   place-items: center;
   cursor: pointer;
-  background-color: ${(props) => (props.isselected ? "black" : "white")};
-  color: ${(props) => (!props.isselected ? "black" : "white")};
+  background-color: ${(props) => (props.isSelected ? "black" : "white")};
+  color: ${(props) => (!props.isSelected ? "black" : "white")};
 `;
