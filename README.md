@@ -9,6 +9,7 @@
 1. **Expense Tracker:** Develop an expense tracking application where users can log their expenses, categorize them, and view spending statistics. Implement features like adding/editing/deleting transactions, filtering transactions by date or category, and displaying a summary of expenses. This project reinforces state management, CRUD operations, and data visualization concepts.
 2. **Movie Browser:** Create an app that allows users to search for movies, view details like title, poster, plot, and ratings, and watch trailers. Integrate with a movie database API (e.g., IMDb or The Movie Database) to fetch movie data. This project helps you practice handling user input, making API requests, and displaying dynamic content.
 3. **Portfolio Website:** Build a personal portfolio website to showcase your projects, skills, and resume. Design the website layout using React components, add sections for projects, about me, contact form, and blog. This project reinforces your understanding of layout design, routing, and form handling in React.
+4. **Blogging website:**  A fullstack blogging website built with the MERN stack (MongoDB, Express.js, React, Node.js), utilizing Vite for a fast development experience, Redux Toolkit for state management, and TailwindCSS for styling. The backend provides RESTful API endpoints for managing blog posts, while the frontend offers a responsive and dynamic interface for users to create, view, and manage blog content.
 
 Intermediate Level Projects:
 
