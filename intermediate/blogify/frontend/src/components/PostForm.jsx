@@ -1,6 +1,40 @@
+import { useState } from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { fetchPosts } from "../features/posts/postsSlice";
+
 const PostForm = () => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [author, setAuthor] = useState("");
+
+  const dispatch = useDispatch();
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // creation of post
+      await axios.post("http://localhost:3000/api/posts", {
+        title,
+        content,
+        author,
+      });
+
+      //   update created post and get on page
+      dispatch(fetchPosts());
+      setTitle("");
+      setContent("");
+      setAuthor("");
+    } catch (error) {
+      console.error(`Error creating post: ${error}`);
+    }
+  };
+
   return (
-    <form className="max-w-md mx-auto p-4 shadow-md rounded">
+    <form
+      onSubmit={handleFormSubmit}
+      className="max-w-md mx-auto p-4 shadow-md rounded"
+    >
       <h2 className="text-2xl font-bold mb-4">Create a New Post</h2>
       <div className="mb-4">
         <label
@@ -12,6 +46,8 @@ const PostForm = () => {
         <input
           type="text"
           id="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
           className="block w-full border rounded-md mt-1 p-2"
           required
         />
@@ -26,6 +62,8 @@ const PostForm = () => {
         <textarea
           id="content"
           className="block w-full border mt-1 p-2 rounded-md"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
           required
         />
       </div>
@@ -40,6 +78,8 @@ const PostForm = () => {
           type="text"
           id="author"
           className="block w-full border rounded-md mt-1 p-2"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
           required
         />
       </div>
